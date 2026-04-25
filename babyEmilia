@@ -1,0 +1,488 @@
+index.html <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Shower Emilia</title>
+  <style>
+    :root {
+      --cream: #fbf5ea;
+      --beige: #e6d4bc;
+      --pistachio: #b7ce8f;
+      --soft-green: #dce8c6;
+      --deep-green: #6f8750;
+      --sage: #9caf7a;
+      --text: #514b42;
+      --white: #fffaf3;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Avenir, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 12%, rgba(183, 206, 143, 0.28), transparent 28%),
+        radial-gradient(circle at 88% 30%, rgba(230, 212, 188, 0.35), transparent 24%),
+        linear-gradient(180deg, #fbf5ea 0%, #eef5df 45%, #fbf5ea 100%);
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: auto;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .card {
+      width: min(620px, 100%);
+      background: rgba(255, 250, 243, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 36px;
+      padding: 36px 24px;
+      box-shadow: 0 18px 45px rgba(111, 135, 80, 0.16);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
+    .card::before {
+      top: -34px;
+      left: -28px;
+      background: var(--soft-green);
+    }
+
+    .card::after {
+      right: -28px;
+      bottom: -34px;
+      background: var(--beige);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 12px;
+      color: var(--deep-green);
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      margin: 0;
+      color: var(--deep-green);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 { font-size: clamp(70px, 19vw, 130px); line-height: 0.88; }
+    h2 { font-size: clamp(42px, 11vw, 74px); line-height: 0.95; }
+    h3 { font-size: 36px; }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 18px auto;
+      max-width: 470px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover {
+      background:
+        radial-gradient(circle at 20% 18%, rgba(183, 206, 143, 0.34), transparent 34%),
+        radial-gradient(circle at 85% 70%, rgba(230, 212, 188, 0.42), transparent 32%),
+        linear-gradient(180deg, #fbf5ea 0%, #eef5df 100%);
+    }
+
+    .bunny-illustration {
+      width: 150px;
+      height: 116px;
+      margin: 24px auto 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bunny-illustration .ear {
+      position: absolute;
+      top: 0;
+      width: 34px;
+      height: 86px;
+      background: #fffaf3;
+      border: 2px solid var(--beige);
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: inset 0 0 0 8px rgba(183, 206, 143, 0.22);
+    }
+
+    .bunny-illustration .ear.left { left: 40px; transform: rotate(-12deg); }
+    .bunny-illustration .ear.right { right: 40px; transform: rotate(12deg); }
+
+    .bunny-illustration .head {
+      position: absolute;
+      left: 35px;
+      top: 52px;
+      width: 80px;
+      height: 64px;
+      background: #fffaf3;
+      border: 2px solid var(--beige);
+      border-radius: 48% 48% 44% 44%;
+    }
+
+    .bunny-illustration .eye {
+      position: absolute;
+      top: 77px;
+      width: 6px;
+      height: 6px;
+      background: var(--deep-green);
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .bunny-illustration .eye.left { left: 59px; }
+    .bunny-illustration .eye.right { right: 59px; }
+
+    .bunny-illustration .nose {
+      position: absolute;
+      top: 88px;
+      left: 72px;
+      width: 8px;
+      height: 6px;
+      background: var(--pistachio);
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .branch {
+      width: 170px;
+      height: 28px;
+      margin: 6px auto 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .branch::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      top: 14px;
+      height: 2px;
+      background: var(--sage);
+      transform: rotate(-3deg);
+    }
+
+    .leaf {
+      position: absolute;
+      width: 24px;
+      height: 12px;
+      background: var(--soft-green);
+      border-radius: 80% 0 80% 0;
+      border: 1px solid rgba(111, 135, 80, 0.25);
+    }
+
+    .leaf.one { left: 25px; top: 2px; transform: rotate(-20deg); }
+    .leaf.two { left: 64px; top: 14px; transform: rotate(160deg); }
+    .leaf.three { right: 46px; top: 0; transform: rotate(-28deg); }
+    .leaf.four { right: 20px; top: 14px; transform: rotate(158deg); }
+
+    .envelope {
+      width: min(340px, 86vw);
+      height: 220px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff7ec, #e5d1b7);
+      box-shadow: 0 25px 55px rgba(111, 135, 80, 0.22);
+      position: relative;
+      cursor: pointer;
+      margin: 24px auto;
+      transition: transform 0.45s ease;
+      z-index: 2;
+    }
+
+    .envelope:hover { transform: translateY(-6px); }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+      background: rgba(255, 255, 255, 0.45);
+      border-radius: 20px;
+    }
+
+    .seal {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--pistachio);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 35px;
+      box-shadow: 0 10px 25px rgba(111, 135, 80, 0.25);
+    }
+
+    .seal::before {
+      content: "E";
+    }
+
+    .scroll-note {
+      margin-top: 28px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--deep-green);
+      position: relative;
+      z-index: 2;
+    }
+
+    .date-line {
+      margin-top: 28px;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 2;
+    }
+
+    .button-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    a.button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 230px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--deep-green);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(111, 135, 80, 0.25);
+    }
+
+    a.button.secondary {
+      background: transparent;
+      color: var(--deep-green);
+      border: 1px solid var(--deep-green);
+      box-shadow: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 30px auto 0;
+      max-width: 440px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mini {
+      background: rgba(255, 255, 255, 0.58);
+      border-radius: 24px;
+      padding: 22px 12px;
+    }
+
+    .mini strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      color: var(--deep-green);
+      line-height: 1;
+    }
+
+    .mini span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.25;
+      color: var(--deep-green);
+    }
+
+    .mini-bunny {
+      width: 58px;
+      height: 45px;
+      position: relative;
+      margin: 0 auto 8px;
+    }
+
+    .mini-bunny::before,
+    .mini-bunny::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 13px;
+      height: 32px;
+      background: #fffaf3;
+      border: 1.5px solid var(--beige);
+      border-radius: 50%;
+    }
+
+    .mini-bunny::before { left: 15px; transform: rotate(-12deg); }
+    .mini-bunny::after { right: 15px; transform: rotate(12deg); }
+
+    .mini-bunny .face {
+      position: absolute;
+      left: 11px;
+      bottom: 0;
+      width: 36px;
+      height: 28px;
+      background: #fffaf3;
+      border: 1.5px solid var(--beige);
+      border-radius: 50%;
+    }
+
+    .wave {
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      bottom: -1px;
+      height: 120px;
+      background: rgba(183, 206, 143, 0.26);
+      clip-path: ellipse(60% 45% at 50% 100%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 520px) {
+      section { padding: 48px 18px; }
+      .card { padding: 36px 20px; border-radius: 28px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <section class="cover" id="inicio">
+    <div class="card">
+      <div class="eyebrow">Un mensajito especial te espera</div>
+      <h2>Baby Shower</h2>
+      <div class="bunny-illustration" aria-hidden="true">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="head"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"></div>
+      </div>
+      <div class="branch" aria-hidden="true">
+        <span class="leaf one"></span>
+        <span class="leaf two"></span>
+        <span class="leaf three"></span>
+        <span class="leaf four"></span>
+      </div>
+      <div class="envelope" onclick="document.getElementById('invitacion').scrollIntoView({behavior: 'smooth'})">
+        <div class="seal"></div>
+      </div>
+      <p>Toca el sobre para abrir</p>
+      <div class="scroll-note">Desliza</div>
+    </div>
+    <div class="wave"></div>
+  </section>
+
+  <section id="invitacion">
+    <div class="card">
+      <div class="eyebrow">Te invitamos a celebrar la llegada de</div>
+      <h1>Emilia</h1>
+      <div class="date-line">Domingo · 24 de Mayo, 2026</div>
+      <p>12:00 PM — Acompáñanos a celebrar con mucho amor</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">¿Cuándo?</div>
+      <h2>24 de Mayo</h2>
+      <div class="grid">
+        <div class="mini"><strong>2026</strong><span>Año</span></div>
+        <div class="mini"><strong>Domingo</strong><span>Día especial</span></div>
+        <div class="mini"><strong>12:00</strong><span>PM</span></div>
+        <div class="mini"><div class="mini-bunny"><span class="face"></span></div><span>Baby Shower</span></div>
+      </div>
+      <div class="button-row">
+        <a class="button" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+Emilia&dates=20260524T180000Z/20260524T200000Z&details=Baby+Shower+de+Emilia&location=Rio+Lerma+76+Ciudad+de+Mexico" target="_blank" rel="noopener noreferrer">Guardar fecha</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">¿Dónde?</div>
+      <h2>Nos vemos en</h2>
+      <p><strong>Río Lerma 76</strong><br>Ciudad de México</p>
+      <p>Te esperamos para celebrar juntos la llegada de Emilia.</p>
+      <div class="button-row">
+        <a class="button" href="https://www.google.com/maps?q=R%C3%ADo+Lerma+76,+Ciudad+de+M%C3%A9xico" target="_blank" rel="noopener noreferrer">Ver ubicación en Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">Mesa de regalos</div>
+      <h2>Amazon Baby Registry</h2>
+      <p>Si deseas hacernos un regalo, preparamos una lista con mucho amor para Emilia.</p>
+      <div class="button-row">
+        <a class="button" href="https://www.amazon.com.mx/baby-reg/beb-fajardozarate-julio-2026-ciudaddemexico/3949LULADM9OA?ref_=cm_sw_r_cp_ud_dp_YJFHCG5FJC99JAFJX4SQ" target="_blank" rel="noopener noreferrer">Ver mesa de regalos</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">Para nuestra familia y amigos</div>
+      <p class="quote">“Aunque soy una hermosa niña, no soy tan fan de que todo sea color rosita.”</p>
+      <p>Si quieres acompañarme con algún detalle, me encantarán los tonos suaves, verdes, beige, neutros y todo lo que se sienta tierno, natural y lleno de amor.</p>
+      <p>Gracias por celebrar conmigo desde antes de llegar.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">Confirmar asistencia</div>
+      <h2>¿Nos acompañas?</h2>
+      <p>Confirma tu asistencia por WhatsApp.</p>
+      <div class="button-row">
+        <a class="button" href="https://wa.me/5215527746036?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20Baby%20Shower%20de%20Emilia" target="_blank" rel="noopener noreferrer">Confirmar por WhatsApp</a>
+        <a class="button secondary" href="https://wa.me/5215527746036" target="_blank" rel="noopener noreferrer">Preguntas por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
